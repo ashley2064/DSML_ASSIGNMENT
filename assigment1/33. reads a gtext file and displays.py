@@ -1,0 +1,28 @@
+def analyze_file(time):
+    vowels = "aeiouAEIOU"
+    num_chars = 0
+    num_vowels = 0
+    num_consonants = 0
+    num_words = 0
+    num_lines = 0
+
+    with open(time, 'r') as file:
+        for line in file:
+            num_lines += 1
+            num_chars += len(line)
+            words = line.split()
+            num_words += len(words)
+
+            for char in line:
+                if char.isalpha():
+                    if char in vowels:
+                        num_vowels += 1
+                    else:
+                        num_consonants += 1
+
+    print(f"Number of characters: {num_chars}")
+    print(f"Number of vowels: {num_vowels}")
+    print(f"Number of consonants: {num_consonants}")
+    print(f"Number of words: {num_words}")
+    print(f"Number of lines: {num_lines}")
+analyze_file("time")
